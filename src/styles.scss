@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+/* Reset margins, paddings, and box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Buttons and clickable elements */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Ensure body takes full height */
+html,
+body {
+  height: 100%;
+}
+
+/* Default body styles */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
