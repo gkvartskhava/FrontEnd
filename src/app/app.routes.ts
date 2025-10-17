@@ -4,7 +4,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ErrorComponentComponent } from './error-component/error-component.component';
 
 export const routes: Routes = [
-    { path : '', component : HomePageComponent },
+    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path: 'home', component: HomePageComponent},
     
     { path : '**', component : ErrorComponentComponent}
 ];
