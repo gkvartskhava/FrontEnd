@@ -1,0 +1,6 @@
+.active {
+  font-weight: 700;
+  color: #060606 !important;
+  border-bottom: 3px solid #0d6efd;
+  transition: all 0.2s ease;
+}/*# sourceMappingURL=navbar.component.css.map */
