@@ -1,0 +1,6 @@
+@use 'abstracts/mixins' as m;
+
+.container {
+  @include m.flex-center;
+ 
+}
