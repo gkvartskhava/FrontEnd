@@ -1,3 +1,5 @@
+@use 'abstracts/mixins' as a;
+@use 'abstracts/variables' as b;
 .active {
     font-weight: 700;         // bold text
     color: #060606 !important; // Bootstrap primary blue (or any color you prefer)
@@ -19,6 +21,8 @@
         .nav-item{
           a{
             text-decoration: none;
+            font-size: b.$primary-font-size;
+
           }
         }
       }  

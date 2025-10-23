@@ -1,0 +1,11 @@
+@use 'abstracts/mixins' as m;
+@use 'abstracts/variables' as b;
+
+
+.container{
+    @include m.flex-center;
+    .footer-text{
+        font-size: b.$primary-font-size;
+        
+    }
+}
