@@ -1,1 +1,11 @@
-<p class="text-center">This is error page</p>
+<section class="error-page">
+    <div class="error-page__container">
+      <h1 class="error-page__code">{{ errorCode }}</h1>
+      <h2 class="error-page__message">{{ errorMessage }}</h2>
+      <p class="error-page__text">
+        Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.
+      </p>
+      <a routerLink="/" class="error-page__button">Zur Startseite</a>
+    </div>
+  </section>
+  
