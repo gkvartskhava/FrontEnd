@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+// import Swiper JS
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/css';
+
+
+
 
 @Component({
   selector: 'app-carousele',
@@ -7,5 +14,5 @@ import { Component } from '@angular/core';
   styleUrl: './carousele.component.scss'
 })
 export class CarouseleComponent {
-
+  const swiper = new Swiper;
 }

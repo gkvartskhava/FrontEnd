@@ -5,6 +5,7 @@ import { ErrorComponentComponent } from './error-component/error-component.compo
 import { GalleryComponent } from './gallery/gallery.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RegisterComponent } from './register/register.component';
+import { CarouseleComponent } from './carousele/carousele.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path : 'gallery', component : GalleryComponent},
     {path : 'shopping-cart', component : ShoppingCartComponent},
     {path : 'register', component : RegisterComponent},
+    {path : "carousele", component : CarouseleComponent},
     
     { path : '**', component : ErrorComponentComponent}
 ];
