@@ -14,5 +14,5 @@ import 'swiper/css';
   styleUrl: './carousele.component.scss'
 })
 export class CarouseleComponent {
-  const swiper = new Swiper;
+ 
 }

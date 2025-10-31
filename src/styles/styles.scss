@@ -15,3 +15,7 @@
   //     width: 60%;
   //   }
   // }
+  :root {
+    --page-padding: 10%; // 10% on each side = total 20%
+    --max-width: 1600px; // optional safety limit
+  }

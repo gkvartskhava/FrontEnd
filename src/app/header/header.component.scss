@@ -1,0 +1,70 @@
+@use 'abstracts/mixins' as a;
+@use 'abstracts/variables' as b;
+
+// header.component.scss
+.hd {
+    width: 100%;
+    max-width: 1600px;
+    height: 40px;
+    
+    @include a.flex-center;
+    
+    font-family: "Roboto", sans-serif;
+  
+    &__boxInside {
+      width: calc(100% - 20%);
+      max-width: 1600px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    &__leftBox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+  
+      .icon1 {
+        font-size: 1.2rem;
+        color: #007bff;
+      }
+  
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+    }
+  
+    &__rightBox {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    &__flag-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+  
+      &:hover {
+        transform: scale(1.05);
+        
+      }
+  
+      img {
+        height: 25px;
+        width: 35px;
+        display: block;
+        object-fit: cover;
+        
+      }
+    }
+  }
+  
