@@ -15,3 +15,51 @@
   justify-content: left;
   align-items: center;
 }
+
+/* soft elevate + subtle blur feeling */
+@mixin hover-elevate {
+  transition: transform var(--hover-speed) var(--ease-smooth),
+              box-shadow var(--hover-speed) var(--ease-smooth),
+              background-color var(--hover-speed) var(--ease-smooth);
+  will-change: transform;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-2);
+  }
+}
+
+/* soft highlight using accent */
+@mixin hover-highlight {
+  transition: background-color var(--hover-speed) var(--ease-smooth),
+              color var(--hover-speed) var(--ease-smooth);
+  &:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    color: var(--color-main);
+  }
+}
+
+/* CENTER-EXPAND UNDERLINE (your request) */
+@mixin smooth-underline($thickness: var(--nav-underline)) {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 100%;
+    height: $thickness;
+    background: var(--color-accent);
+    border-radius: $thickness;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform var(--hover-speed) var(--ease-smooth);
+  }
+
+  &:hover::after,
+  &.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+}

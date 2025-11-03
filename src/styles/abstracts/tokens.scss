@@ -1,0 +1,46 @@
+:root {
+    /* brand */
+    --color-main: #133434;   /* your main */
+    --color-accent: #F6FA09; /* your hover/accent */
+  
+    /* light palette */
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f6f7f8;
+    --text: #0b0b0c;
+    --muted: #667085;
+    --border: #e6e8eb;
+  
+    /* motion + radii + shadows */
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-soft: cubic-bezier(0.2, 0.6, 0.2, 1);
+    --hover-speed: 240ms;
+    --radius: 12px;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-2: 0 8px 24px rgba(0,0,0,0.08);
+  
+    /* nav underline thickness */
+    --nav-underline: 2px;
+  }
+  
+  /* DARK THEME */
+  :root[data-theme="dark"] {
+    --bg: #0b0e12;
+    --surface: #101418;
+    --surface-2: #151a20;
+    --text: #e6e9ee;
+    --muted: #9aa3ad;
+    --border: #1e252c;
+  
+    /* make accent pop slightly in dark */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-2: 0 12px 28px rgba(0,0,0,0.45);
+  }
+  
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  

@@ -1,6 +1,12 @@
+// colors
 $primary-color: #FFFFFF;
 $secondary-color: #2ecc71;
 $main-color: #DCD3C9;
-$font-stack: 'Arial', sans-serif;
+
+// light mode
 $light-mode-font-color : #FFFFFF;
+
+// font variables
 $primary-font-size : clamp(10px , 1.8rem, 40px);
+$usual-font-size: clamp(0.9rem, 2vw, 1rem);
+$font-stack: 'Arial', sans-serif;
