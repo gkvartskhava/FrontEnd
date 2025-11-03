@@ -1,19 +1,54 @@
-
 <div class="hd">
-    <div class="hd__boxInside">
-      <div class="hd__leftBox">
-        <i class="fa-solid fa-phone icon1"></i>
-        <p>0322 22 00</p>
-      </div>
-  
-      <div class="hd__rightBox">
-        <button class="hd__flag-btn" aria-label="Switch to Georgian">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg" alt="Geo" />
-        </button>
-        <button class="hd__flag-btn" aria-label="Switch to English">
-          <img src="https://media.istockphoto.com/id/537635560/de/foto/amerikanische-flagge-hd-hintergrund-flagge-von-den-usa.jpg?s=170667a&w=0&k=20&c=OyTxFsnjzH8MbOTo5iZfw8MKqarhxwGPIM1BhuuCo64=" alt="Eng" />
-        </button>
-      </div>
+  <div class="hd__boxInside">
+    <div class="hd__leftBox">
+      <i class="fa-solid fa-phone icon1" aria-hidden="true"></i>
+      <span class="hd__phone-number">0322 22 00</span>
+    </div>
+
+    <div class="hd__rightBox">
+
+      <!-- Language: Georgian -->
+      <button 
+        type="button"
+        class="hd__flag-btn"
+        aria-label="Switch language to Georgian"
+        (click)="setLanguage('ka')"
+      >
+        <img 
+          src="https://flagcdn.com/w40/ge.png"
+          width="40"
+          height="28"
+          alt="Georgian Flag"
+          loading="lazy"
+        />
+      </button>
+
+      <!-- Language: English -->
+      <button
+        type="button"
+        class="hd__flag-btn"
+        aria-label="Switch language to English"
+        (click)="setLanguage('en')"
+      >
+        <img 
+          src="https://flagcdn.com/w40/us.png"
+          width="40"
+          height="28"
+          alt="English Flag"
+          loading="lazy"
+        />
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button
+        type="button"
+        class="theme-toggle"
+        aria-label="Toggle light or dark theme"
+        (click)="toggleTheme()"
+      >
+        <span class="theme-icon"></span>
+      </button>
+
     </div>
   </div>
-  
+</div>

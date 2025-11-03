@@ -1,18 +1,33 @@
-@use 'abstracts/tokens' as a;
-
+@use 'abstracts/tokens';
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
 
-  }
-  a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+
+ html, body {
+    background: var(--bg);
+    color: var(--text);
+    transition: var(--theme-transition);
   }
 
- 
-  
- 
+/* Dark Mode Active Icon Swap - must be global */
+:root[data-theme="dark"] .theme-toggle .theme-icon {
+  transform: rotate(360deg);
+
+  &::before {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  &::after {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

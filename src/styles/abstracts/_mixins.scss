@@ -39,27 +39,41 @@
   }
 }
 
-/* CENTER-EXPAND UNDERLINE (your request) */
-@mixin smooth-underline($thickness: var(--nav-underline)) {
+
+@mixin smooth-underline($thickness: 4px) {
   position: relative;
   text-decoration: none;
 
   &::after {
     content: '';
     position: absolute;
-    left: 50%;
     bottom: -4px;
+    left: 50%;
     width: 100%;
     height: $thickness;
-    background: var(--color-accent);
+    background-color: var(--color-accent, #F6FA09);
     border-radius: $thickness;
     transform: translateX(-50%) scaleX(0);
     transform-origin: center;
-    transition: transform var(--hover-speed) var(--ease-smooth);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform var(--hover-speed, 300ms) var(--ease-smooth),
+      opacity var(--hover-speed, 300ms) var(--ease-smooth);
   }
 
-  &:hover::after,
-  &.active::after {
+  // Hover preview animation
+  &:hover::after {
     transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+
+  // Active link underline stays AND animates on apply
+  &.active::after {
+    background-color: var(--color-main);
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+    transition-delay: 90ms; // ✨ Premium delayed reveal
   }
 }
+

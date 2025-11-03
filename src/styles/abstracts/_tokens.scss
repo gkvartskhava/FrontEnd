@@ -14,13 +14,22 @@
     /* motion + radii + shadows */
     --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.2, 0.6, 0.2, 1);
-    --hover-speed: 240ms;
+    --hover-speed: 200ms;
     --radius: 12px;
     --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
     --shadow-2: 0 8px 24px rgba(0,0,0,0.08);
+    --hover-bg: rgba(0, 0, 0, 0.07);
+    --active-bg: color-mix(in srgb, var(--text) 14%, transparent);
   
     /* nav underline thickness */
-    --nav-underline: 2px;
+    --nav-underline: 4px;
+    --theme-transition: background-color 0.35s ease, color 0.35s ease;
+
+    // for header scss
+    --toggle-hover-bg: color-mix(in srgb, var(--color-accent) 10%, var(--surface-2));
+    --hover-bg-flags: color-mix(in srgb, var(--color-accent) 6%, transparent);
+    --theme-transition: background-color 0.35s ease, color 0.35s ease;
+
   }
   
   /* DARK THEME */
@@ -31,16 +40,17 @@
     --text: #e6e9ee;
     --muted: #9aa3ad;
     --border: #1e252c;
+   
   
     /* make accent pop slightly in dark */
     --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
     --shadow-2: 0 12px 28px rgba(0,0,0,0.45);
+    --hover-bg: color-mix(in srgb, #ffffff 10%, transparent);
+    --active-bg: color-mix(in srgb, var(--text) 14%, transparent);
+
+    // used in header scss
+    --toggle-hover-bg: color-mix(in srgb, var(--color-accent) 18%, var(--surface-2));
+    --hover-bg-flags: color-mix(in srgb, var(--color-accent) 10%, transparent);
   }
   
-
-  html, body {
-    background: var(--bg);
-    color: var(--text);
-  }
-
   

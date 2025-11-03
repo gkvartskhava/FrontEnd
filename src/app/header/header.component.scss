@@ -1,70 +1,146 @@
 @use 'abstracts/mixins' as a;
 @use 'abstracts/variables' as b;
+@use 'abstracts/tokens';
 
-// header.component.scss
+/* ===== HEADER BAR ===== */
 .hd {
-    width: 100%;
+  width: 100%;
+  max-width: 1600px;
+  height: 40px;
+  @include a.flex-center;
+  font-family: "Roboto", sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  transition: background var(--theme-transition), color var(--theme-transition);
+
+  &__boxInside {
+    width: calc(100% - 20%);
     max-width: 1600px;
-    height: 40px;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* LEFT SIDE (Phone + Text) */
+  &__leftBox {
     @include a.flex-center;
-    
-    font-family: "Roboto", sans-serif;
-  
-    &__boxInside {
-      width: calc(100% - 20%);
-      max-width: 1600px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    gap: 8px;
+    color: var(--text);
+
+    .icon1 {
+      font-size: 1.2rem;
+      color: var(--color-main); /* Matches your brand instead of bootstrap blue */
+      transition: color var(--hover-speed) var(--ease-smooth);
     }
-  
-    &__leftBox {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #333;
-  
-      .icon1 {
-        font-size: 1.2rem;
-        color: #007bff;
-      }
-  
-      p {
-        margin: 0;
-        font-size: 0.95rem;
-        font-weight: 500;
-      }
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
-  
-    &__rightBox {
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    &__flag-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      border-radius: 4px;
-      overflow: hidden;
-      transition: transform 0.2s ease;
-  
-      &:hover {
-        transform: scale(1.05);
-        
-      }
-  
-      img {
-        height: 25px;
-        width: 35px;
-        display: block;
-        object-fit: cover;
-        
-      }
+
+    /* Optional: slight hover effect for phone number */
+    &:hover .icon1 {
+      color: var(--color-accent);
     }
   }
-  
+
+  /* RIGHT SIDE (Flags + Theme Button) */
+  &__rightBox {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* ===== Flag Buttons ===== */
+  &__flag-btn {
+    background: var(--surface-2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 40px;
+    transition:
+      transform 0.25s var(--ease-smooth),
+      box-shadow 0.25s var(--ease-smooth),
+      background var(--ease-smooth);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 6px color-mix(in srgb, var(--color-accent) 40%, transparent);
+      background: var(--hover-bg-flags);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+  transition:
+    background 0.3s var(--ease-smooth),
+    box-shadow 0.3s var(--ease-smooth),
+    transform 0.3s var(--ease-smooth);
+
+  &:hover {
+    box-shadow: var(--shadow-2);
+    background: var(--toggle-hover-bg);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .theme-icon {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.4s var(--ease-smooth), filter 0.4s var(--ease-smooth);
+
+    &::before,
+    &::after {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &::before {
+      content: "☀️"; /* Light icon */
+    }
+
+    &::after {
+      content: "🌙"; /* Dark icon */
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth);
+    }
+  }
+}
