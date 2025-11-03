@@ -17,17 +17,74 @@ a {
     transition: var(--theme-transition);
   }
 
-/* Dark Mode Active Icon Swap - must be global */
-:root[data-theme="dark"] .theme-toggle .theme-icon {
-  transform: rotate(360deg);
 
-  &::before {
-    transform: scale(0);
+
+/* DARK MODE */
+html[data-theme="dark"] ::ng-deep .theme-switch {
+  .label-light { display: none !important; }
+  .label-dark { display: inline !important; }
+
+  .icon-sun {
     opacity: 0;
+    transform: scale(.85);
+    filter: blur(1px);
+  }
+  .icon-moon {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
   }
 
-  &::after {
-    transform: scale(1);
-    opacity: 1;
+  .knob {
+    transform: translateX(calc(var(--w) - var(--h)));
   }
+
+  .track {
+    background: color-mix(in srgb, var(--color-accent) 16%, var(--surface-2));
+  }
+}
+
+
+/* Theme Switch – Dark Mode */
+html[data-theme="dark"] .theme-switch {
+  .track {
+    background: color-mix(in srgb, var(--color-accent) 16%, var(--surface-2));
+  }
+
+  .knob {
+    transform: translateX(calc(var(--w) - var(--h)));
+  }
+
+  .icon-sun {
+    opacity: 0;
+    transform: scale(.85);
+    filter: blur(1px);
+  }
+
+  .icon-moon {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+  }
+
+  .label-light { display: none; }
+  .label-dark { display: inline; }
+}
+
+/* Theme Switch – Light Mode */
+html[data-theme="light"] .theme-switch {
+  .icon-sun {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+  }
+
+  .icon-moon {
+    opacity: 0;
+    transform: scale(.85);
+    filter: blur(1px);
+  }
+
+  .label-light { display: inline; }
+  .label-dark { display: none; }
 }

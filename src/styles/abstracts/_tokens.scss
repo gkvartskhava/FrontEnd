@@ -2,7 +2,15 @@
     /* brand */
     --color-main: #133434;   /* your main */
     --color-accent: #F6FA09; /* your hover/accent */
+
+    --color-main: #133434;
+    --color-accent: #F6FA09;
   
+
+  
+    --theme-transition: background 0.35s ease, color 0.35s ease;
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
     /* light palette */
     --bg: #ffffff;
     --surface: #ffffff;
@@ -10,6 +18,8 @@
     --text: #0b0b0c;
     --muted: #667085;
     --border: #e6e8eb;
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-2: 0 12px 28px rgba(0,0,0,0.45); 
   
     /* motion + radii + shadows */
     --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
@@ -23,7 +33,7 @@
   
     /* nav underline thickness */
     --nav-underline: 4px;
-    --theme-transition: background-color 0.35s ease, color 0.35s ease;
+    
 
     // for header scss
     --toggle-hover-bg: color-mix(in srgb, var(--color-accent) 10%, var(--surface-2));

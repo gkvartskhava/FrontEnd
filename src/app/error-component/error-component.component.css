@@ -1,1 +1,40 @@
-/*# sourceMappingURL=error-component.component.css.map */
+.error-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  text-align: center;
+  padding: 2rem;
+}
+.error-page__container {
+  max-width: 600px;
+}
+.error-page__code {
+  font-size: clamp(5rem, 10vw, 10rem);
+  color: #ff4757;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.error-page__message {
+  font-size: 1.8rem;
+  color: #2f3542;
+  margin-bottom: 0.5rem;
+}
+.error-page__text {
+  color: rgb(80.0247787611, 90.2407079646, 112.3752212389);
+  margin-bottom: 2rem;
+}
+.error-page__button {
+  display: inline-block;
+  background-color: #1e90ff;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.error-page__button:hover {
+  background-color: rgb(1.5, 129.94, 255);
+}/*# sourceMappingURL=error-component.component.css.map */

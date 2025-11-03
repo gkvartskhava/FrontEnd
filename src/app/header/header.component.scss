@@ -1,6 +1,6 @@
 @use 'abstracts/mixins' as a;
 @use 'abstracts/variables' as b;
-@use 'abstracts/tokens';
+
 
 /* ===== HEADER BAR ===== */
 .hd {
@@ -89,58 +89,65 @@
   }
 }
 
-/* ===== Theme Toggle Button ===== */
-.theme-toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  background: var(--surface-2);
-  display: flex;
+.theme-switch {
+  --h: 36px;
+  --w: 64px;
+
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
+  padding: 0;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  box-shadow: var(--shadow-1);
-  transition:
-    background 0.3s var(--ease-smooth),
-    box-shadow 0.3s var(--ease-smooth),
-    transform 0.3s var(--ease-smooth);
+  font: inherit;
+  color: var(--text);
 
-  &:hover {
+  .track {
+    position: relative;
+    width: var(--w);
+    height: var(--h);
+    background: var(--surface-2);
+    border-radius: var(--h);
+    box-shadow: var(--shadow-1);
+    transition: background var(--theme-transition), box-shadow var(--theme-transition);
+  }
+
+  .knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(var(--h) - 6px);
+    height: calc(var(--h) - 6px);
+    border-radius: 50%;
+    background: var(--bg);
     box-shadow: var(--shadow-2);
-    background: var(--toggle-hover-bg);
-    transform: translateY(-2px);
+    display: grid;
+    place-items: center;
+    transition: transform 260ms var(--ease-smooth), background var(--theme-transition), box-shadow var(--theme-transition);
   }
 
-  &:active {
-    transform: scale(0.95);
-  }
-
-  .theme-icon {
+  .icon {
     width: 18px;
     height: 18px;
-    position: relative;
-    display: inline-block;
-    transition: transform 0.4s var(--ease-smooth), filter 0.4s var(--ease-smooth);
+    display: block;
+    transition: opacity 220ms var(--ease-smooth), transform 220ms var(--ease-smooth), filter 220ms var(--ease-smooth);
+  }
 
-    &::before,
-    &::after {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  /* Sun */
+  .icon-sun circle { fill: var(--color-accent); }
+  .icon-sun .rays line {
+    stroke: var(--color-accent);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+  }
 
-    &::before {
-      content: "☀️"; /* Light icon */
-    }
+  /* Moon */
+  .icon-moon path { fill: var(--color-main); }
 
-    &::after {
-      content: "🌙"; /* Dark icon */
-      transform: scale(0);
-      opacity: 0;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth);
-    }
+  /* Label Default */
+  .label {
+    user-select: none;
+    font-weight: 500;
   }
 }

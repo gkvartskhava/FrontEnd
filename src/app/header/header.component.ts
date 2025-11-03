@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   toggleTheme() {
-    const el = document.documentElement;
-    const isDark = el.getAttribute('data-theme') === 'dark';
-    el.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   }
   
   setLanguage(lang: string) {
