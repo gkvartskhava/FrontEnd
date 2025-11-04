@@ -122,8 +122,9 @@
     border-radius: 50%;
     background: var(--bg);
     box-shadow: var(--shadow-2);
-    display: grid;
-    place-items: center;
+    display: flex;          /* instead of grid */
+    align-items: center;
+    justify-content: center;
     transition: transform 260ms var(--ease-smooth), background var(--theme-transition), box-shadow var(--theme-transition);
   }
 
