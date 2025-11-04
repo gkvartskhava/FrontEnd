@@ -1,83 +1,29 @@
 <div class="hd">
   <div class="hd__boxInside">
     <div class="hd__leftBox">
+
       <i class="fa-solid fa-phone icon1" aria-hidden="true"></i>
       <span class="hd__phone-number">0322 22 00</span>
+
+      <button type="button" class="theme-toggle" aria-label="Toggle theme" (click)="toggleTheme()">
+      <i class="theme-icon fa-solid fa-moon"></i>
+    </button>
     </div>
 
     <div class="hd__rightBox">
 
       <!-- Language: Georgian -->
-      <button 
-        type="button"
-        class="hd__flag-btn"
-        aria-label="Switch language to Georgian"
-        (click)="setLanguage('ka')"
-      >
-        <img 
-          src="https://flagcdn.com/w40/ge.png"
-          width="40"
-          height="28"
-          alt="Georgian Flag"
-          loading="lazy"
-        />
+      <button type="button" class="hd__flag-btn" aria-label="Switch language to Georgian" (click)="setLanguage('ka')">
+        <img src="https://flagcdn.com/w40/ge.png" width="40" height="28" alt="Georgian Flag" loading="lazy"/>
       </button>
 
       <!-- Language: English -->
-      <button
-        type="button"
-        class="hd__flag-btn"
-        aria-label="Switch language to English"
-        (click)="setLanguage('en')"
-      >
-        <img 
-          src="https://flagcdn.com/w40/us.png"
-          width="40"
-          height="28"
-          alt="English Flag"
-          loading="lazy"
-        />
+      <button type="button" class="hd__flag-btn" aria-label="Switch language to English" (click)="setLanguage('en')">
+        <img src="https://flagcdn.com/w40/us.png" width="40" height="28" alt="English Flag" loading="lazy"/>
       </button>
-
-      <button
-      type="button"
-      class="theme-switch"
-      aria-label="Toggle dark or light mode"
-      (click)="toggleTheme()"
-    >
-      <span class="track">
-        <span class="knob">
-          <!-- Sun -->
-          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5.5" />
-            <g class="rays">
-              <line x1="12" y1="2.5"  x2="12" y2="5" />
-              <line x1="12" y1="19"   x2="12" y2="21.5" />
-              <line x1="4.2" y1="4.2" x2="5.9" y2="5.9" />
-              <line x1="18.1" y1="18.1" x2="19.8" y2="19.8" />
-              <line x1="2.5" y1="12" x2="5" y2="12" />
-              <line x1="19" y1="12" x2="21.5" y2="12" />
-              <line x1="4.2" y1="19.8" x2="5.9" y2="18.1" />
-              <line x1="18.1" y1="5.9" x2="19.8" y2="4.2" />
-            </g>
-          </svg>
-    
-          <!-- Moon -->
-          <svg class=" icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15.5 22c-4.97 0-9-4.03-9-9 0-3.2 1.67-6.01 4.18-7.57a.75.75 0 0 1 .98 1.06A6.5 6.5 0 0 0 12 12.5c0 3.59 2.91 6.5 6.5 6.5 1.16 0 2.25-.3 3.19-.83a.75.75 0 0 1 1.06.98A8.97 8.97 0 0 1 15.5 22z" />
-          </svg>
-        </span>
-      </span>
-    
-      <span class="label">
-        <span class="label-light">Dark mode</span>
-        <span class="label-dark">Light mode</span>
-      </span>
-    </button>
-    
-
-
-
+      
     </div>
   </div>
 </div>
+
+

@@ -45,46 +45,22 @@ html[data-theme="dark"] ::ng-deep .theme-switch {
 }
 
 
-/* Theme Switch – Dark Mode */
-html[data-theme="dark"] .theme-switch {
-  .track {
-    background: color-mix(in srgb, var(--color-accent) 16%, var(--surface-2));
-  }
 
-  .knob {
-    transform: translateX(calc(var(--w) - var(--h)));
-  }
-
-  .icon-sun {
-    opacity: 0;
-    transform: scale(.85);
-    filter: blur(1px);
-  }
-
-  .icon-moon {
-    opacity: 1;
-    transform: scale(1);
-    filter: none;
-  }
-
-  .label-light { display: none; }
-  .label-dark { display: inline; }
+/* Light Mode Animation (shows moon) */
+html[data-theme="light"] .theme-icon {
+  transform: rotate(0deg);
+  opacity: 1;
 }
 
-/* Theme Switch – Light Mode */
-html[data-theme="light"] .theme-switch {
-  .icon-sun {
-    opacity: 1;
-    transform: scale(1);
-    filter: none;
-  }
+/* Dark Mode Animation (shows sun) */
+html[data-theme="dark"] .theme-icon {
+  transform: rotate(360deg);
+  opacity: 1;
+  color: var(--color-accent);
+}
 
-  .icon-moon {
-    opacity: 0;
-    transform: scale(.85);
-    filter: blur(1px);
-  }
 
-  .label-light { display: inline; }
-  .label-dark { display: none; }
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }

@@ -9,10 +9,19 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', newTheme);
+  
+    const icon = document.querySelector('.theme-icon') as HTMLElement;
+    if (icon) {
+      icon.classList.remove('fa-moon', 'fa-sun');
+      icon.classList.add(newTheme === 'dark' ? 'fa-sun' : 'fa-moon');
+    }
   }
+  
+  
   
   setLanguage(lang: string) {
     console.log('Language switched to:', lang);
