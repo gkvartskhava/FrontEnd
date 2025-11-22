@@ -22,72 +22,26 @@
 </div> -->
 
 
-
 <div class="auth-container">
+  <form class="auth-form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
 
-    <!-- Tabs -->
-    <ul class="nav nav-tabs auth-tabs">
-      <li class="nav-item">
-        <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login">
-          Login
-        </button>
-      </li>
-  
-      <li class="nav-item">
-        <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register">
-          Register
-        </button>
-      </li>
-    </ul>
-  
-    <!-- Tab Content -->
-    <div class="tab-content">
-  
-      <!-- LOGIN FORM -->
-      <div class="tab-pane fade show active" id="login">
-        <form class="auth-form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
-  
-          <h2 class="auth-title">Login</h2>
-  
-          <div class="form-group mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-          </div>
-  
-          <div class="form-group mb-3">
-            <label>Password</label>
-            <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
-          </div>
-  
-          <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
-      </div>
-  
-      <!-- REGISTER FORM -->
-      <div class="tab-pane fade" id="register">
-        <form class="auth-form" (ngSubmit)="onRegister()" [formGroup]="registerForm">
-  
-          <h2 class="auth-title">Register</h2>
-  
-          <div class="form-group mb-3">
-            <label>Username</label>
-            <input type="text" class="form-control" formControlName="username" placeholder="Enter username">
-          </div>
-  
-          <div class="form-group mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
-          </div>
-  
-          <div class="form-group mb-3">
-            <label>Password</label>
-            <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
-          </div>
-  
-          <button type="submit" class="btn btn-success w-100">Create Account</button>
-        </form>
-      </div>
-  
+    <h2 class="auth-title">Login</h2>
+
+    <div class="form-group mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email">
     </div>
-  </div>
-  
+
+    <div class="form-group mb-3">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+
+    <p class="auth-link mt-3">
+      No account? <a routerLink="/register">Register</a>
+    </p>
+
+  </form>
+</div>
