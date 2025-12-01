@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-error-component',
+  standalone: true,
   imports: [RouterLink],
   templateUrl: './error-component.component.html',
   styleUrl: './error-component.component.scss'
@@ -10,4 +11,6 @@ import { RouterLink } from '@angular/router';
 export class ErrorComponentComponent {
   errorCode = 404;
   errorMessage = 'this page not found';
+
+
 }
