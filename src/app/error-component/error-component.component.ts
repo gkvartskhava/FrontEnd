@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-error-component',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './error-component.component.html',
   styleUrl: './error-component.component.scss'
 })
