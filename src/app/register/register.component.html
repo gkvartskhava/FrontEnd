@@ -1,72 +1,152 @@
-<!-- <div class="container">
-    <form  class="bg-info p-5 w-75 mt-5 mx-auto" >
-        <h4 class="text-center m-4 " >add user</h4>
-
-        <div class="form-group m-3">
-            <label for="1name" class="form-label">Name</label>
-            <input type="text" formControlName="name" reactiv id="1name" class="form-control" placeholder="enter name">
+<div class="auth-wrapper">
+    <div class="container">
+      <div class="form-container">
+        <div class="tabs">
+          <div 
+            class="tab" 
+            [class.active]="activeTab === 'login'"
+            (click)="switchTab('login')">
+            Login
+          </div>
+          <div 
+            class="tab" 
+            [class.active]="activeTab === 'register'"
+            (click)="switchTab('register')">
+            Register
+          </div>
         </div>
-        <div class="form-group m-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" id="username" class="form-control" placeholder="enter username" formControlName="username">
-        </div>
-        <div class="form-group m-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="enter email" formControlName="email">
-        </div>
-        <div class="text-center m-3">
-            <button class="btn btn-success btn-lg m-1">update</button>
-            <button class="btn btn-danger btn-lg m-1" >cancel</button>
-        </div>
-    </form>
-</div> -->
-
-
-<div class="container">
-  <div class="form-container">
-      <div class="tabs">
-          <div class="tab active" onclick="switchTab('login')">Login</div>
-          <div class="tab" onclick="switchTab('register')">Register</div>
-      </div>
-
-      <form id="loginForm" class="form active">
+  
+        <!-- Login Form -->
+        <form 
+          *ngIf="activeTab === 'login'" 
+          [formGroup]="loginForm" 
+          (ngSubmit)="onLogin()"
+          class="form">
           <h2>Welcome Back</h2>
+          
           <div class="input-group">
-              <label for="loginEmail">Email</label>
-              <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            <label for="loginEmail">Email</label>
+            <input 
+              type="email" 
+              id="loginEmail" 
+              formControlName="email"
+              placeholder="Enter your email"
+              [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <span 
+              class="error-text" 
+              *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              Please enter a valid email
+            </span>
           </div>
+  
           <div class="input-group">
-              <label for="loginPassword">Password</label>
-              <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            <label for="loginPassword">Password</label>
+            <input 
+              type="password" 
+              id="loginPassword" 
+              formControlName="password"
+              placeholder="Enter your password"
+              [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <span 
+              class="error-text" 
+              *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              Password must be at least 6 characters
+            </span>
           </div>
+  
           <div class="forgot-password">
-              <a href="#">Forgot Password?</a>
+            <a href="#">Forgot Password?</a>
           </div>
+  
           <button type="submit" class="btn">Login</button>
-          <div id="loginMessage" class="message"></div>
-      </form>
-
-      <form id="registerForm" class="form">
+  
+          <div 
+            *ngIf="loginMessage" 
+            class="message"
+            [class.success]="loginMessage.type === 'success'"
+            [class.error]="loginMessage.type === 'error'">
+            {{ loginMessage.text }}
+          </div>
+        </form>
+  
+        <!-- Register Form -->
+        <form 
+          *ngIf="activeTab === 'register'" 
+          [formGroup]="registerForm" 
+          (ngSubmit)="onRegister()"
+          class="form">
           <h2>Create Account</h2>
+  
           <div class="input-group">
-              <label for="registerName">Full Name</label>
-              <input type="text" id="registerName" placeholder="Enter your name" required>
+            <label for="registerName">Full Name</label>
+            <input 
+              type="text" 
+              id="registerName" 
+              formControlName="name"
+              placeholder="Enter your name"
+              [class.invalid]="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+            <span 
+              class="error-text" 
+              *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+              Name is required
+            </span>
           </div>
+  
           <div class="input-group">
-              <label for="registerEmail">Email</label>
-              <input type="email" id="registerEmail" placeholder="Enter your email" required>
+            <label for="registerEmail">Email</label>
+            <input 
+              type="email" 
+              id="registerEmail" 
+              formControlName="email"
+              placeholder="Enter your email"
+              [class.invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            <span 
+              class="error-text" 
+              *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+              Please enter a valid email
+            </span>
           </div>
+  
           <div class="input-group">
-              <label for="registerPassword">Password</label>
-              <input type="password" id="registerPassword" placeholder="Create a password" required>
+            <label for="registerPassword">Password</label>
+            <input 
+              type="password" 
+              id="registerPassword" 
+              formControlName="password"
+              placeholder="Create a password"
+              [class.invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            <span 
+              class="error-text" 
+              *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+              Password must be at least 6 characters
+            </span>
           </div>
+  
           <div class="input-group">
-              <label for="registerConfirmPassword">Confirm Password</label>
-              <input type="password" id="registerConfirmPassword" placeholder="Confirm your password" required>
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input 
+              type="password" 
+              id="registerConfirmPassword" 
+              formControlName="confirmPassword"
+              placeholder="Confirm your password"
+              [class.invalid]="registerForm.get('confirmPassword')?.touched && !passwordsMatch()">
+            <span 
+              class="error-text" 
+              *ngIf="registerForm.get('confirmPassword')?.touched && !passwordsMatch()">
+              Passwords do not match
+            </span>
           </div>
+  
           <button type="submit" class="btn">Register</button>
-          <div id="registerMessage" class="message"></div>
-      </form>
+  
+          <div 
+            *ngIf="registerMessage" 
+            class="message"
+            [class.success]="registerMessage.type === 'success'"
+            [class.error]="registerMessage.type === 'error'">
+            {{ registerMessage.text }}
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
-

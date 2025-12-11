@@ -12,5 +12,7 @@ export class ErrorComponentComponent {
   errorCode = 404;
   errorMessage = 'this page not found';
 
+  goHome(){
 
+  }
 }
