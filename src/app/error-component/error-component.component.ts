@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-error-component',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './error-component.component.html',
   styleUrl: './error-component.component.scss'
 })
 export class ErrorComponentComponent {
-  errorCode = 404;
-  errorMessage = 'this page not found';
+  @Input() title: string = 'Error';
+  @Input() message: string = 'Something went wrong. Please try again.';
+  @Input() type: 'error' | 'warning' | 'info' = 'error';
+  @Input() showRetry: boolean = true;
+  @Input() retryText: string = 'Try Again';
 
-  goHome(){
-
+  onRetry() {
+    window.location.reload();
   }
 }
